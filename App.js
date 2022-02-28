@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import UserDataComponent from './Components/UserDataComponent'
+import img from './Assets/wissenlogo.PNG'
 
 
 import "./App.css";
@@ -138,7 +139,7 @@ function App() {
   return (
     <div className="app">
       <div className="login-form">
-        <div className="title"><img src={}></img></div>
+        <div className="title"><img src="https://drive.google.com/uc?export=view&id=1hvRAGrdq0SqFBZApx2--IcuDf-DOmOBH"></img></div>
         {isSubmitted ? <div><UserDataComponent/></div> : renderForm}
       </div>
     </div>
