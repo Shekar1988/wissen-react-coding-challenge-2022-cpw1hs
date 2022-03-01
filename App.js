@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom";
-import UserDataComponent from './Components/UserDataComponent'
-import img from './Assets/wissenlogo.PNG'
+import React, { useState } from 'react';
+import ReactDOM from 'react-dom';
+import img from './wissenlogo.PNG';
+import UserDataComponent from './Components/UserDataComponent';
 
-
-import "./App.css";
+import './App.css';
 
 function App() {
   // React States
@@ -12,47 +11,52 @@ function App() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isChecked, setIsChecked] = useState(false)
-
+  const [isChecked, setIsChecked] = useState(false);
 
   // User Login info
   const database = [
     {
-      username: "eve.holt@reqres.in",
-      password: "cityslicka"
+      username: 'eve.holt@reqres.in',
+      password: 'cityslicka',
     },
     {
-      username: "user2",
-      password: "pass2"
-    }
+      username: 'user2',
+      password: 'pass2',
+    },
   ];
 
   const errors = {
-    uname: "invalid username",
-    pass: "invalid password"
+    uname: 'invalid username',
+    pass: 'invalid password',
+  };
+
+  const logout = () => {
+    setIsSubmitted(false);
+    localStorage.removeItem('token');
   };
 
   const handleSubmit = (event) => {
     //Prevent page reload
     event.preventDefault();
-    fetch("https://reqres.in/api/login", {
-      method: "POST",
+    fetch('https://reqres.in/api/login', {
+      method: 'POST',
       headers: {
-        'Accept': 'application/JSON',
-        'Content-type': 'application/JSON'
+        Accept: 'application/JSON',
+        'Content-type': 'application/JSON',
       },
       body: JSON.stringify({
         email: email,
-        password: password
+        password: password,
       }),
     })
       .then((response) => response.json())
       .then((result) => {
         if (result.error) {
-          alert("Invalid username /password");
+          alert('Invalid username /password');
         } else {
-          localStorage.setItem("token",result.token);
-          alert("You are logged in.");
+          localStorage.setItem('token', result.token);
+          setIsSubmitted(true);
+          //alert("You are logged in.");
         }
       });
 
@@ -65,13 +69,13 @@ function App() {
     if (userData) {
       if (userData.password !== pass.value) {
         // Invalid password
-        setErrorMessages({ name: "pass", message: errors.pass });
+        setErrorMessages({ name: 'pass', message: errors.pass });
       } else {
         setIsSubmitted(true);
       }
     } else {
       // Username not found
-      setErrorMessages({ name: "uname", message: errors.uname });
+      setErrorMessages({ name: 'uname', message: errors.uname });
     }
   };
 
@@ -83,9 +87,9 @@ function App() {
 
   // JSX code for login form
   const renderForm = (
-    <div className="container-fluid col-md-12 offset-5">
+    <div className="login-wrapper">
       <form onSubmit={handleSubmit}>
-      <div className="form-group inputWrapper">
+        <div className="form-group inputWrapper">
           <label htmlFor="email"> Email </label>
           <input
             type="email"
@@ -112,36 +116,52 @@ function App() {
           />
         </div>
         <br />
+        <div className="login-agreement">
           <div>
             <input
-              className="form-check-input"
               type="checkbox"
               value=""
-              id="flexCheckDefault"              
-              onChange={e => setIsChecked(e.target.checked)} value={isChecked}
+              onChange={(e) => setIsChecked(!isChecked)}
+              value={isChecked}
             />
-            <label className="form-check-label" htmlFor="flexCheckDefault">
-              By creating or logging into an account, you are agreeing with our
-              <span className="bold-text"> Terms & Conditions </span> and
-              <span className="bold-text">Privacy Policys</span>
-            </label>
           </div>
-          <br />
-          <div>
-            <button onClick={handleSubmit} className="btn btn-light text-primary" disabled={!isChecked}>
-              Next
-            </button>
+          <div htmlFor="flexCheckDefault">
+            By creating or logging into an account, you are agreeing with our
+            <span className="bold-text"> Terms & Conditions </span> and
+            <span className="bold-text">Privacy Policys</span>
           </div>
+        </div>
+        <br />
+        <div>
+          <button
+            onClick={handleSubmit}
+            className={isChecked ? 'buttn-enabled' : 'buttn-disabled'}
+            disabled={!isChecked}
+          >
+            Next
+          </button>
+        </div>
       </form>
     </div>
   );
 
   return (
     <div className="app">
-      <div className="login-form">
-        <div className="title"><img src="https://drive.google.com/uc?export=view&id=1hvRAGrdq0SqFBZApx2--IcuDf-DOmOBH"></img></div>
-        {isSubmitted ? <div><UserDataComponent/></div> : renderForm}
-      </div>
+      {isSubmitted ? (
+        <div>
+          <UserDataComponent logout={logout} />
+        </div>
+      ) : (
+        <div className="login-form">
+          <div className="title">
+            <img
+              src="https://drive.google.com/uc?export=view&id=1hvRAGrdq0SqFBZApx2--IcuDf-DOmOBH"
+              alt="Wissen Logo"
+            ></img>
+          </div>
+          {renderForm}
+        </div>
+      )}
     </div>
   );
 }

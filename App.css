@@ -1,4 +1,4 @@
-.app {
+/* .app {
   font-family: sans-serif;
   display: flex;
   align-items: center;
@@ -8,15 +8,15 @@
   height: 100vh;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   background-color: #f8f9fd;
-}
+} */
 
-input[type="text"],
-input[type="password"] {
+input[type='text'],
+input[type='password'] {
   height: 25px;
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-input[type="submit"] {
+input[type='submit'] {
   margin-top: 10px;
   cursor: pointer;
   font-size: 15px;
@@ -26,7 +26,7 @@ input[type="submit"] {
   padding: 10px 20px;
 }
 
-input[type="submit"]:hover {
+input[type='submit']:hover {
   background: #6cf0c2;
 }
 
@@ -37,7 +37,9 @@ input[type="submit"]:hover {
 
 .login-form {
   background-color: white;
-  padding: 2rem;
+  margin: 10px auto;
+  padding: 10px;
+  width: 35%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -52,7 +54,9 @@ input[type="submit"]:hover {
 
 .title {
   font-size: 25px;
-  margin-bottom: 20px;
+  width: 188px;
+  text-align: center;
+  margin: auto;
 }
 
 .input-container {
@@ -60,4 +64,51 @@ input[type="submit"]:hover {
   flex-direction: column;
   gap: 8px;
   margin: 10px;
+}
+
+.login-wrapper {
+  margin: 0px 14%;
+  padding: 10px;
+}
+
+.login-agreement > div {
+  float: left;
+  margin-left: 20px;
+}
+
+.user-list {
+  margin: 5px;
+  padding: 10px;
+  color: white;
+  list-style: none;
+}
+
+.log-out {
+  display: inline-block;
+  float: right;
+  margin: 2%;
+  color: blue;
+  cursor: pointer;
+}
+
+.buttn-enabled {
+  background: #3737b6;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  margin: 10px;
+  border-radius: 8px;
+}
+
+.buttn-disabled {
+  background: #cfcfe4;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  margin: 10px;
+  border-radius: 8px;
 }
