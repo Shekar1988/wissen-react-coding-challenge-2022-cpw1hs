@@ -20,8 +20,10 @@ function UserDataComponent({logout}) {
     const nameList = users?.map((user) => { return <li className="user-list" style={{background:user.color}} key={user.id}>{user.name}</li> });
     return (        
         <div>
-            <div className="user-title"><img style ={{marginLeft: "2%"}} src="https://drive.google.com/uc?export=view&id=1hvRAGrdq0SqFBZApx2--IcuDf-DOmOBH"></img>
-            <span onClick={()=>logout()} className="log-out">Logout</span></div>
+            <div className="user-title"><img style ={{marginLeft: "2%",margin:"10px",
+    background: "#eee",
+    border: "2px solid #eee"}} src="https://drive.google.com/uc?export=view&id=1hvRAGrdq0SqFBZApx2--IcuDf-DOmOBH"></img>
+            <span style={{}} onClick={()=>logout()} className="log-out">Logout</span></div>
             {isLoading ? <div>Loading...</div> : <ul>{nameList}</ul>}
         </div>
     )
