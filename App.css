@@ -10,13 +10,13 @@
   background-color: #f8f9fd;
 } */
 
-input[type='text'],
-input[type='password'] {
+input[type="text"],
+input[type="password"] {
   height: 25px;
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-input[type='submit'] {
+input[type="submit"] {
   margin-top: 10px;
   cursor: pointer;
   font-size: 15px;
@@ -26,7 +26,7 @@ input[type='submit'] {
   padding: 10px 20px;
 }
 
-input[type='submit']:hover {
+input[type="submit"]:hover {
   background: #6cf0c2;
 }
 
@@ -39,7 +39,7 @@ input[type='submit']:hover {
   background-color: white;
   margin: 10px auto;
   padding: 10px;
-  width: 35%;
+  width: 57%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -71,9 +71,9 @@ input[type='submit']:hover {
   padding: 10px;
 }
 
-.login-agreement > div {
-  float: left;
-  margin-left: 20px;
+.login-agreement > div{
+ float:left;
+ margin-left:20px;
 }
 
 .user-list {
@@ -84,14 +84,14 @@ input[type='submit']:hover {
 }
 
 .log-out {
-  display: inline-block;
-  float: right;
-  margin: 2%;
-  color: blue;
-  cursor: pointer;
+    display: inline-block;
+    float: right;
+    margin: 2%;
+    color: blue;
+    cursor: pointer;
 }
 
-.buttn-enabled {
+.buttn-enabled {  
   background: #3737b6;
   border: none;
   width: 100%;
@@ -102,7 +102,7 @@ input[type='submit']:hover {
   border-radius: 8px;
 }
 
-.buttn-disabled {
+.buttn-disabled {  
   background: #cfcfe4;
   border: none;
   width: 100%;
@@ -111,4 +111,14 @@ input[type='submit']:hover {
   font-weight: bold;
   margin: 10px;
   border-radius: 8px;
+}
+
+@media only screen and (max-width: 680px) {
+  .login-form {
+    background-color: white;
+    margin: 10px auto;
+    padding: 25px;
+    width: 95%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 }
