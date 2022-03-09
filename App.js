@@ -115,7 +115,7 @@ function App() {
             style={{ width: '100%', height: '50px' }}
             name="uname"
             id="email"
-            pattern={".+@brihsolutions.in"}
+            pattern={".+@reqres.in"}
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
